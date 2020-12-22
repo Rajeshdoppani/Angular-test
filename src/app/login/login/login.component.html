@@ -1,0 +1,22 @@
+<div class="login abs-center">
+    <h2 class="login__title">Welcome !</h2>
+    <div class="login__form">
+        <form name="loginForm" #loginForm="ngForm">
+            <div class="login__input">
+                <input type="email" placeholder="Email" required id="email" name="email" #email="ngModel"
+                    [(ngModel)]="user.email"
+                    pattern="[a-zA-Z0-9!#$% &amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" />
+                <div class="login__error-txt" *ngIf="email.touched && email.invalid">Please enter valid email</div>
+            </div>
+            <div class="login__input">
+                <input type="password" placeholder="Password" required id="password" name="password" #password="ngModel"
+                    [(ngModel)]="user.password" />
+                <div class="login__error-txt" *ngIf="password.touched && password.invalid">Please enter valid
+                    password</div>
+            </div>
+            <div class="login__btn-wrap">
+                <button type="submit" [disabled]="loginForm.invalid" (click)="submit(user)">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

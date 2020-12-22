@@ -1,0 +1,53 @@
+<header class="header">
+    <ul class="header__setting-info">
+        <li class="header__dd-text" (click)="navigate()">Products</li>
+        <li class="header__dd-text" (click)="logout()">Logout</li>
+    </ul>
+</header>
+
+<div class="main-content">
+    <div class="feedback">
+        <div class="feedback__content">
+            <h3 class="feedback__content-title">Feedback Form</h3>
+            <div class="feedback__content-form m-t-24">
+                <form name="feedbackForm" #feedbackForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" #name="ngModel" [(ngModel)]="feedback.name" id="name"
+                            name="name" autocomplete="off" required>
+                        <div class="feedback__content-form__error-txt" *ngIf="name.touched && name.invalid">Name is
+                            required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" #email="ngModel"
+                            [(ngModel)]="feedback.email"
+                            pattern="[a-zA-Z0-9!#$% &amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" autocomplete="off" required>
+                        <div class="feedback__content-form__error-txt" *ngIf="email.touched && email.invalid">Please
+                            Enter Valid Email</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" #mobile="ngModel" maxlength="10"
+                            [(ngModel)]="feedback.mobile" autocomplete="off" required>
+                        <div class="feedback__content-form__error-txt" *ngIf="mobile.touched && mobile.invalid">Please
+                            Enter valid Mobile Number</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea type="text" class="form-control" id="message" name="message" rows="3"
+                            #message="ngModel" [(ngModel)]="feedback.message" required></textarea>
+                        <div class="feedback__content-form__error-txt" *ngIf="message.touched && message.invalid">
+                            Message
+                            is
+                            required</div>
+                    </div>
+                    <div class="feedback__content-form__btn m-t-24">
+                        <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid"
+                            (click)="submitFeedback(feedback)">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

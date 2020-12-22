@@ -1,0 +1,26 @@
+.header {
+    width: 100%;
+    height: 4.8rem;
+    padding: 0 1.6rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #2e608b;
+    z-index: 1035;
+    &__setting-info {
+        display: inline-flex;
+        margin: 0;
+        li {
+            padding: 0 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            &:last-child {
+                padding-right: 1.6rem;
+            }
+        }
+    }
+    &__dd-text {
+        color: #fff;
+    }
+}

@@ -1,0 +1,41 @@
+.feedback {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    &__content {
+        width: 80%;
+        background-color: #fff;
+        box-shadow: 0 0 1px 0 rgba(43, 61, 81, 0.3), 0 2px 3px 0 rgba(43, 61, 81, 0.1);
+        padding: 1.6rem;
+        &-title {
+            text-align: center;
+        }
+        &-form {
+            &__error-txt {
+                left: 0;
+                top: 100%;
+                font-size: 1.3rem;
+                color: #f15748;
+                padding: 0.4rem 0 0 0.4rem;
+                animation: error-text 0.2s ease-in;
+            }
+            &__btn {
+                display: flex;
+                justify-content: center;
+                button {
+                    font-size: 1.6rem;
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes error-text {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
