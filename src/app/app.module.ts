@@ -14,7 +14,6 @@ import { LoginModule } from './login/login.module';
 import { ProductsModule } from './products/products.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     LoginModule,
     ProductsModule,
     FeedbackModule,
-    NgxSpinnerModule,
     InfiniteScrollModule
   ],
   providers: [],

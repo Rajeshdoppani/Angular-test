@@ -5,51 +5,38 @@
     </ul>
 </header>
 
-<div class="main-content lm-layout">
-    <div class="lm-layout__menu">
-        <h3 class="lm-layout__menu-title">Filters</h3>
-        <mat-form-field>
-            <mat-select [(ngModel)]="sortType" name="sortType" (ngModelChange)="sortOrder($event)">
-                <mat-option *ngFor="let type of types" [value]="type.value">
-                    {{type.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <!-- <form name="filter" #filter="ngForm">
-            <div class="form-group spacing">
-                <label for="sort">Select Type</label>
-                <select class="form-control" id="sort" name="sort" #sortType (change)="sortOrder(sortType.value)">
-                    <option *ngFor="let type of types" [value]="type.value">{{type.viewValue}}</option>
-                </select>
-            </div>
-        </form> -->
-    </div>
-    <div class="lm-layout__content" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500"
-        (scrolled)="onScroll()" [scrollWindow]="false">
-        <div class="row">
-            <div class="col-4" *ngFor="let list of productList | slice:0:some; let i = index">
-                <div class="product-details">
-                    <div class="product-details__img">
-                        <img src="{{list.ListImagePath}}{{list.Images[0]}}" alt="">
-                    </div>
-                    <div class="product-details__content">
-                        <p><strong>{{list.ProductTitle}}</strong></p>
-                        <p>Style Name: <strong>{{list.StyleName}}</strong></p>
-                        <p>Price: <strong>&#8377;{{list.Price}}</strong></p>
-                        <p>Collection: <strong>{{list.Collection}}</strong></p>
-                        <p>Product Code: <strong>{{list.ProductCode}}</strong></p>
-                        <p>Available Sizes: <strong>{{list.AvailableSizes}}</strong></p>
-                        <p>Style Number: <strong>{{list.StyleNumber}}</strong></p>
-                        <p>Net Quantity: <strong>{{list.NetQuantity}}</strong></p>
+<div class="main-content">
+    <div class="lm-layout">
+        <div class="lm-layout__menu">
+            <h3 class="lm-layout__menu-title">Filters</h3>
+            <mat-form-field>
+                <mat-select [(ngModel)]="sortType" name="sortType" (ngModelChange)="sortOrder($event)">
+                    <mat-option *ngFor="let type of types" [value]="type.value">
+                        {{type.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="lm-layout__content" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500"
+            (scrolled)="onScroll()" [scrollWindow]="false">
+            <div class="row">
+                <div class="col-4" *ngFor="let list of productList | slice:0:some; let i = index">
+                    <div class="product-details">
+                        <div class="product-details__img">
+                            <img src="{{list.ListImagePath}}{{list.Images[0]}}" alt="">
+                        </div>
+                        <div class="product-details__content">
+                            <p><strong>{{list.ProductTitle}}</strong></p>
+                            <p>Style Name: <strong>{{list.StyleName}}</strong></p>
+                            <p>Price: <strong>&#8377;{{list.Price}}</strong></p>
+                            <p>Collection: <strong>{{list.Collection}}</strong></p>
+                            <p>Product Code: <strong>{{list.ProductCode}}</strong></p>
+                            <p>Available Sizes: <strong>{{list.AvailableSizes}}</strong></p>
+                            <p>Style Number: <strong>{{list.StyleNumber}}</strong></p>
+                            <p>Net Quantity: <strong>{{list.NetQuantity}}</strong></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row pb-5">
-            <div class="col-md-12 p-5">
-                <ngx-spinner bdOpacity=0.9 bdColor="" size="default" color="#581f87" type="ball-pulse-sync"
-                    [fullScreen]="false">
-                </ngx-spinner>
             </div>
         </div>
     </div>

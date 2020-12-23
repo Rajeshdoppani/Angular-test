@@ -8,7 +8,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ProductsComponent } from './products/products.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { NgxSpinnerModule } from 'ngx-spinner';
 
 const routes: Routes = [
   {path: '', component: ProductsComponent}
@@ -21,7 +20,6 @@ const routes: Routes = [
     FormsModule,
     MatSelectModule,
     InfiniteScrollModule,
-    NgxSpinnerModule,
     MatFormFieldModule,
     RouterModule.forChild(routes)
   ]

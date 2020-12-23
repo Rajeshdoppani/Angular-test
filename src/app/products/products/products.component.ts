@@ -3,8 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import products from '../../shared/products.json';
 
-import { NgxSpinnerService } from 'ngx-spinner';
-
 
 @Component({
   selector: 'app-products',
@@ -23,7 +21,7 @@ export class ProductsComponent implements OnInit {
   notscrolly = true;
   some = 12;
 
-  constructor(private router: Router, private route: ActivatedRoute, private spinner: NgxSpinnerService) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(resp => {
