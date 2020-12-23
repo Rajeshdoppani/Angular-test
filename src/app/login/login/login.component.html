@@ -5,12 +5,12 @@
             <div class="login__input">
                 <input type="email" placeholder="Email" required id="email" name="email" #email="ngModel"
                     [(ngModel)]="user.email"
-                    pattern="[a-zA-Z0-9!#$% &amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" />
+                    pattern="[a-zA-Z0-9!#$% &amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" autocomplete="off"/>
                 <div class="login__error-txt" *ngIf="email.touched && email.invalid">Please enter valid email</div>
             </div>
             <div class="login__input">
                 <input type="password" placeholder="Password" required id="password" name="password" #password="ngModel"
-                    [(ngModel)]="user.password" />
+                    [(ngModel)]="user.password" minlength="6" autocomplete="off"/>
                 <div class="login__error-txt" *ngIf="password.touched && password.invalid">Please enter valid
                     password</div>
             </div>
