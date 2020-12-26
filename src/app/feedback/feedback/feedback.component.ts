@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-feedback',
@@ -15,14 +16,23 @@ export class FeedbackComponent implements OnInit {
     message: ''
   };
 
-  constructor(private router: Router) { }
+
+  @ViewChild('feedbackForm') myForm;
+
+  constructor(private router: Router, private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   submitFeedback(feedback) {
-    console.log(feedback);
-    localStorage.setItem('userFeedback', JSON.stringify(feedback));
+    if (this.myForm.valid) {
+      localStorage.setItem('userFeedback', JSON.stringify(feedback));
+      this.snackbar.open('Submitted Successfully..!!','',{
+        duration: 2000,
+      });
+      this.myForm.reset();
+    }
+
   }
 
   navigate() {

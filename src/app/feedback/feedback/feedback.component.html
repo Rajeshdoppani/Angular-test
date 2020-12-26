@@ -14,22 +14,25 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" #name="ngModel" [(ngModel)]="feedback.name" id="name"
-                            name="name" autocomplete="off" required>
+                            onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" name="name"
+                            autocomplete="off" required>
                         <div class="feedback__content-form__error-txt" *ngIf="name.touched && name.invalid">Name is
                             required</div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email" #email="ngModel"
-                            [(ngModel)]="feedback.email"
-                            pattern="[a-zA-Z0-9!#$% &amp;'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" autocomplete="off" required>
+                            [(ngModel)]="feedback.email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            autocomplete="off" required>
                         <div class="feedback__content-form__error-txt" *ngIf="email.touched && email.invalid">Please
                             Enter Valid Email</div>
                     </div>
                     <div class="form-group">
                         <label for="mobile">Mobile Number</label>
-                        <input type="tel" class="form-control" id="mobile" name="mobile" #mobile="ngModel" minlength="10" maxlength="10"
-                            [(ngModel)]="feedback.mobile" autocomplete="off" required>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" #mobile="ngModel"
+                            pattern="(0/91)?[6-9][0-9]{9}" minlength="10" maxlength="10" [(ngModel)]="feedback.mobile"
+                            autocomplete="off" required>
                         <div class="feedback__content-form__error-txt" *ngIf="mobile.touched && mobile.invalid">Please
                             Enter valid Mobile Number</div>
                     </div>
@@ -42,7 +45,7 @@
                             is
                             required</div>
                     </div>
-                    <div class="feedback__content-form__btn m-t-24">
+                    <div class="feedback__content-form__btn m-t-20">
                         <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid"
                             (click)="submitFeedback(feedback)">Submit</button>
                     </div>
